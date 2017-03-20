@@ -69,6 +69,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         include: path.join(__dirname, 'src'),
         use: 'file-loader?name=[hash].[ext]&publicPath=/images/&outputPath=images/'
+      },
+      {
+        test: [/\.js$/],
+        include: path.resolve(__dirname, 'src'),
+        loader: 'babel-loader',
+        query: {
+          presets: [ 'react', 'es2015', 'stage-3' ]
+        }
       }
     ]
   },
